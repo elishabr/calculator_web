@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Image from "./components/img";
+import logo from "./img/1.jpg"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Header extends React.Component{
+  render(){
+    return (
+      <header className="header">{this.props.title}</header>
+    )
+  }
 }
 
-export default App;
+class App extends React.Component{
+
+  helpText = "Help";
+
+  inputClick = () => console.log("Click");
+
+  render(){
+    return ( <div className="name" >
+    <Header title="Шапка сайта" />
+    <h1>{this.helpText}</h1>
+    <input name="input-1" placeholder={this.helpText}
+      onClick={this.inputClick}/>
+    <img src={logo}/>
+    </div>)
+  }
+}
+
+export default App
